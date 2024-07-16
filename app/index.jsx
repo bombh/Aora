@@ -1,3 +1,11 @@
+/**
+ * @name Aora
+ * @description Discover Endless Possibilites with Aora
+ * @tutorial https://www.youtube.com/watch?v=ZBCUegTZF7M
+ * @version 0.0.1
+ * @author JSMastery
+ */
+
 import { Image, ScrollView, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
 import { images } from "@/constants"
