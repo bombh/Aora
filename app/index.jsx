@@ -22,7 +22,7 @@ export default function App() {
          />
 
          <ScrollView contentContainerStyle={{ height: "100%" }}>
-            <View className="w-full h-full items-center justify-center min-h-[85vh] px-4">
+            <View className="w-full h-full items-center justify-center min-h-[80vh] px-4">
                <Image
                   source={images.logo}
                   className="w-[130px] h-[84px]"
