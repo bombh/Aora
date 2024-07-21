@@ -9,7 +9,7 @@
 import "react-native-url-polyfill/auto"
 import { Image, ScrollView, Text, View } from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { images } from "@/constants"
+import { images } from "@/src/constants"
 import CustomButton from "@/src/components/CustomButton"
 import { StatusBar } from "expo-status-bar"
 import { Redirect, router } from "expo-router"

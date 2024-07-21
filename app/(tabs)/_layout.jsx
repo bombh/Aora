@@ -3,7 +3,7 @@ import React from "react"
 import { Redirect, Tabs } from "expo-router"
 import colors from "tailwindcss/colors"
 
-import { icons } from "@/constants"
+import { icons } from "@/src/constants"
 
 const TabIcon = ({ icon, name, color, focused }) => {
    return (
