@@ -1,3 +1,12 @@
+/**
+ * Appwrite calls
+ *
+ * @function createUser - Create a new user
+ * @function signIn - Sign in a user
+ * @function getCurrentUser - Get the current user
+ * @function getAllPosts - Get all posts from video collection
+ */
+
 import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite"
 
 // Appwrite Config
@@ -84,5 +93,15 @@ export const getCurrentUser = async () => {
       return currentUser.documents[0]
    } catch (error) {
       console.error(error)
+   }
+}
+
+export const getAllPosts = async () => {
+   try {
+      const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId)
+
+      return posts.documents
+   } catch (error) {
+      throw new Error(error)
    }
 }
