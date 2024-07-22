@@ -57,7 +57,7 @@ const SignUp = () => {
                <FormField
                   title="Name"
                   value={form.username}
-                  handeChange={(value) => setForm({ ...form, username: value })}
+                  handleChange={(value) => setForm({ ...form, username: value })}
                   containerStyles="mt-7"
                   placeholder="Enter your name"
                />
@@ -65,7 +65,7 @@ const SignUp = () => {
                <FormField
                   title="Email"
                   value={form.email}
-                  handeChange={(value) => setForm({ ...form, email: value })}
+                  handleChange={(value) => setForm({ ...form, email: value })}
                   containerStyles="mt-7"
                   keyboardType="email-address"
                   placeholder="Enter your email"
@@ -74,7 +74,7 @@ const SignUp = () => {
                <FormField
                   title="Password"
                   value={form.password}
-                  handeChange={(value) => setForm({ ...form, password: value })}
+                  handleChange={(value) => setForm({ ...form, password: value })}
                   containerStyles="mt-7"
                   placeholder="Enter your password"
                />

@@ -3,7 +3,7 @@ import React, { useState } from "react"
 
 import { icons } from "@/src/constants"
 
-const FormField = ({ title, value, handeChange, containerStyles, placeholder, ...props }) => {
+const FormField = ({ title, value, handleChange, containerStyles, placeholder, ...props }) => {
    const [showPassword, setShowPassword] = useState(false)
 
    return (
@@ -13,7 +13,7 @@ const FormField = ({ title, value, handeChange, containerStyles, placeholder, ..
          <View className="flex-row w-full h-16 px-4 items-center rounded-xl bg-black-100 border border-black-200 focus:border-secondary">
             <TextInput
                value={value}
-               onChangeText={handeChange}
+               onChangeText={handleChange}
                placeholder={placeholder}
                placeholderTextColor="#7B7B8B"
                className="flex-1 text-white text-base font-psemibold"
