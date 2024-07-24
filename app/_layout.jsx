@@ -3,6 +3,7 @@ import React, { useEffect } from "react"
 import { SplashScreen, Stack } from "expo-router"
 import { useFonts } from "expo-font"
 import GlobalProvider from "@/src/context/GlobalProvider"
+import { StatusBar } from "expo-status-bar"
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync()
@@ -38,6 +39,10 @@ const RootLayout = () => {
 
    return (
       <GlobalProvider>
+         <StatusBar
+            backgroundColor="#161622"
+            style="light"
+         />
          <Stack>
             <Stack.Screen
                name="index"

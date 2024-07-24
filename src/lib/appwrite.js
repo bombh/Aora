@@ -1,10 +1,14 @@
 /**
  * Appwrite calls
  *
+ * @constant config - Appwrite configuration
+ *
  * @function createUser - Create a new user
  * @function signIn - Sign in a user
  * @function getCurrentUser - Get the current user
  * @function getAllPosts - Get all posts from video collection
+ * @function getLatestPosts - Get latest posts from video collection
+ *
  */
 
 import { Account, Avatars, Client, Databases, ID, Query } from "react-native-appwrite"
@@ -20,7 +24,7 @@ export const config = {
    storageId: "669700e0003a37da155d",
 }
 
-// Init your React Native SDK
+// Init Appwrite SDK
 const client = new Client()
 client.setEndpoint(config.endpoint).setProject(config.projectId).setPlatform(config.platform)
 
@@ -99,6 +103,18 @@ export const getCurrentUser = async () => {
 export const getAllPosts = async () => {
    try {
       const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId)
+
+      return posts.documents
+   } catch (error) {
+      throw new Error(error)
+   }
+}
+
+export const getLatestPosts = async () => {
+   try {
+      const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId, [
+         Query.orderDesc("$createdAt", Query.limit(5)),
+      ])
 
       return posts.documents
    } catch (error) {

@@ -22,11 +22,6 @@ export default function App() {
 
    return (
       <SafeAreaView className="bg-primary h-full">
-         <StatusBar
-            backgroundColor="#161622"
-            style="light"
-         />
-
          <ScrollView contentContainerStyle={{ height: "100%" }}>
             <View className="w-full h-full items-center justify-center min-h-[80vh] px-4">
                <Image
