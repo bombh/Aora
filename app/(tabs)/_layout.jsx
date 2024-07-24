@@ -4,6 +4,7 @@ import { Redirect, Tabs } from "expo-router"
 import colors from "tailwindcss/colors"
 
 import { icons } from "@/src/constants"
+import { StatusBar } from "expo-status-bar"
 
 const TabIcon = ({ icon, name, color, focused }) => {
    return (
@@ -29,6 +30,11 @@ const TabIcon = ({ icon, name, color, focused }) => {
 const TabsLayout = () => {
    return (
       <>
+         <StatusBar
+            backgroundColor="#161622"
+            style="light"
+         />
+
          <Tabs
             screenOptions={{
                tabBarShowLabel: false,
