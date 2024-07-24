@@ -8,6 +8,7 @@
  * @function getCurrentUser - Get the current user
  * @function getAllPosts - Get all posts from video collection
  * @function getLatestPosts - Get latest posts from video collection
+ * @function searchPosts - Search posts from video collection
  *
  */
 
@@ -114,6 +115,18 @@ export const getLatestPosts = async () => {
    try {
       const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId, [
          Query.orderDesc("$createdAt", Query.limit(5)),
+      ])
+
+      return posts.documents
+   } catch (error) {
+      throw new Error(error)
+   }
+}
+
+export const searchPosts = async (query) => {
+   try {
+      const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId, [
+         Query.search("title", query),
       ])
 
       return posts.documents
