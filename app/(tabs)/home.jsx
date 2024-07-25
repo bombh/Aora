@@ -9,8 +9,10 @@ import EmptyVideos from "@/src/components/EmptyVideos"
 import { getAllPosts, getLatestPosts } from "@/src/lib/appwrite"
 import useAppwrite from "@/src/lib/useAppwrite"
 import VideoCard from "@/src/components/VideoCard"
+import { useGlobalContext } from "@/src/context/GlobalProvider"
 
 const Home = () => {
+   const { user } = useGlobalContext()
    const { data: posts, isLoading, refetch } = useAppwrite(getAllPosts)
    const { data: latestPosts } = useAppwrite(getLatestPosts)
    const [refreshing, setRefreshing] = useState(false)
@@ -32,7 +34,7 @@ const Home = () => {
                   <View className="flex-row justify-between items-start mb-6">
                      <View>
                         <Text className="font-pmedium text-sm text-gray-100">Welcome back</Text>
-                        <Text className="font-psemibold text-2xl text-white">John Doe</Text>
+                        <Text className="font-psemibold text-2xl text-white">{user?.username}</Text>
                      </View>
                      <View className="mt-1">
                         <Image
