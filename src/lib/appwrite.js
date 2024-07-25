@@ -4,11 +4,20 @@
  * @constant config - Appwrite configuration
  *
  * @function createUser - Create a new user
+ *   - @param email - User email
+ *   - @param password - User password
+ *   - @param username
  * @function signIn - Sign in a user
+ *   - @param email - User email
+ *   - @param password - User password
  * @function getCurrentUser - Get the current user
  * @function getAllPosts - Get all posts from video collection
  * @function getLatestPosts - Get latest posts from video collection
  * @function searchPosts - Search posts from video collection
+ *    - @param query - Search query string
+ * @function getUserPosts - Get posts by userId
+ *    - @param userId - User ID
+ * @function signOut - Sign out the user
  *
  */
 
@@ -130,6 +139,28 @@ export const searchPosts = async (query) => {
       ])
 
       return posts.documents
+   } catch (error) {
+      throw new Error(error)
+   }
+}
+
+export const getUserPosts = async (userId) => {
+   try {
+      const posts = await databases.listDocuments(config.databaseId, config.videoCollectionId, [
+         Query.equal("creator", userId),
+      ])
+
+      return posts.documents
+   } catch (error) {
+      throw new Error(error)
+   }
+}
+
+export const signOut = async () => {
+   try {
+      const session = await account.deleteSession("current")
+
+      return session
    } catch (error) {
       throw new Error(error)
    }

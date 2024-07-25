@@ -6,13 +6,16 @@ import { images } from "@/src/constants"
 import CustomButton from "@/src/components/CustomButton"
 import { Link, router } from "expo-router"
 import FormField from "@/src/components/FormField"
-import { signIn } from "@/src/lib/appwrite"
+import { getCurrentUser, signIn } from "@/src/lib/appwrite"
+import { useGlobalContext } from "@/src/context/GlobalProvider"
 
 const SignIn = () => {
    const [form, setForm] = useState({
       email: "",
       password: "",
    })
+
+   const { setUser, setIsLoggedIn } = useGlobalContext()
 
    const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -30,9 +33,10 @@ const SignIn = () => {
          // Create user
          await signIn(form.email, form.password)
 
-         // Tricks to avoid the error
-         // setUser(result)
-         // setIsLoggedIn(true)
+         // Set to global state
+         const result = await getCurrentUser()
+         setUser(result)
+         setIsLoggedIn(true)
 
          router.replace("/home")
       } catch (error) {
