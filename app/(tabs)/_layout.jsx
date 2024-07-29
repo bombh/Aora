@@ -8,7 +8,7 @@ import { StatusBar } from "expo-status-bar"
 
 const TabIcon = ({ icon, name, color, focused }) => {
    return (
-      <View className="items-center justify-center gap-2">
+      <View className="items-center justify-center pt-3 gap-2">
          <Image
             source={icon}
             resizeMode="contain"

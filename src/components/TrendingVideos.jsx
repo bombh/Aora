@@ -34,7 +34,7 @@ const TrendingVideoItem = ({ activeItem, item }) => {
          {play ? (
             <Video
                source={{ uri: item.video }}
-               className="w-52 h-72 rounded-3xl mt-3 bg-white/10"
+               className="w-52 h-72 rounded-3xl mt-3 bg-gray-100"
                resizeMode={ResizeMode.CONTAIN}
                useNativeControls
                shouldPlay

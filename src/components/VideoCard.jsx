@@ -46,7 +46,7 @@ const VideoCard = ({ title, thumbnail, video, creator: { username, avatar } }) =
          {play ? (
             <Video
                source={{ uri: video }}
-               className="w-full h-60 rounded-3xl mt-3 bg-black/10"
+               className="w-full h-60 rounded-3xl mt-3 bg-gray-100"
                resizeMode={ResizeMode.CONTAIN}
                useNativeControls
                shouldPlay
